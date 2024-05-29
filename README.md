@@ -17,7 +17,7 @@ SQL Injection, Cross-Site Scripting (XSS), and Cross-Site Request Forgery (CSRF)
 1. Clone the repository:
    ```bash
    git clone https://github.com/EclipseEternal/security-workshop.git
-   cd secure-coding-workshop
+   cd security-workshop
 2. Start the Docker containers:
    ```bash
    docker compose up --build -d
