@@ -1,0 +1,14 @@
+services:
+  php:
+    build: ./php
+    volumes:
+      - ./php/src:/var/www/html
+    ports:
+      - "8080:80"
+
+  js:
+    build: ./js
+    volumes:
+      - ./js/src:/usr/share/nginx/html
+    ports:
+      - "8081:80"
