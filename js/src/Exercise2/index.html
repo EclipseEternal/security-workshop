@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>XSS Vulnerability</title>
+</head>
+<body>
+<h1>Comment Section</h1>
+<form id="commentForm">
+    <label for="comment">Comment:</label>
+    <input type="text" id="comment" name="comment">
+    <button type="submit">Submit</button>
+</form>
+<div id="comments"></div>
+
+<script>
+    document.getElementById('commentForm').addEventListener('submit', function (e) {
+        e.preventDefault();
+        var comment = document.getElementById('comment').value;
+        document.getElementById('comments').innerHTML += '<p>' + comment + '</p>';
+    });
+</script>
+</body>
+</html>
