@@ -42,6 +42,8 @@ SQL Injection, Cross-Site Scripting (XSS), and Cross-Site Request Forgery (CSRF)
 File: php/src/Exercise1/index.php
 
 Modify the code to use prepared statements and parameterized queries.
+#### How to test
+* Type `anything` in the first input and `anything' OR '1'='1` in the input and you will discover the username of the first user in the DB!!!
 
 ### Exercise 2: Secure a JavaScript Application Against XSS
 
