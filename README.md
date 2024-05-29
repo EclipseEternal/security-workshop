@@ -20,7 +20,7 @@ SQL Injection, Cross-Site Scripting (XSS), and Cross-Site Request Forgery (CSRF)
    cd secure-coding-workshop
 2. Start the Docker containers:
    ```bash
-   docker-compose up --build -d
+   docker compose up --build -d
 3. Access the exercises:
     * PHP (Exercise 1): http://localhost:8080/Exercise1
     * JavaScript (Exercise 2): http://localhost:8081
