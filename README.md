@@ -39,7 +39,7 @@ SQL Injection, Cross-Site Scripting (XSS), and Cross-Site Request Forgery (CSRF)
 
 ### Exercise 1 - Secure a PHP Form Handling Script Against SQL Injection
 
-File: php/src/Exercise1/index.php
+File to modify: php/src/Exercise1/index.php line 31 -> 40
 
 Modify the code to use prepared statements and parameterized queries.
 #### How to test
@@ -47,12 +47,28 @@ Modify the code to use prepared statements and parameterized queries.
 
 ### Exercise 2: Secure a JavaScript Application Against XSS
 
-File: js/src/Exercise2/index.html
+File to modify: js/src/Exercise2/index.html line 20 -> 21
 
 Modify the code to sanitize user input to prevent XSS attacks.
 
+#### How to test
+* Type
+   ```html
+   <img src="https://cdn.sstatic.net/Sites/stackoverflow/img/sprites.svg?v=1b3cdae197be" onload="alert(1)">
+* and see the alert executing
+
 ### Exercise 3: Implement CSRF Protection in a PHP Form
 
-Files: php/src/Exercise3/form.php, php/src/Exercise3/process.php
+Files to modify: php/src/Exercise3/form.php line 12 -> 19, php/src/Exercise3/change_email.php line 7 -> 16
 
 Implement CSRF protection by adding a CSRF token to the form and validating it in the processing script.
+
+#### How to test
+* What should work:
+  * Go on http://localhost:8080/Exercise3/form.php
+  * Complete the form
+  * See user email changed
+* What should not work:
+  * Go to http://localhost:8080/Exercise3/attack.html (this simulates the logged in user who clicked on a fake website)
+  * Fill in the form
+  * Notice that the email is changed

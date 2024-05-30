@@ -2,17 +2,18 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>XSS Vulnerability</title>
+    <title>Exercise 2: XSS Vulnerability</title>
 </head>
 <body>
-<h1>Comment Section</h1>
+<h1>Welcome to Exercise 2</h1>
 <form id="commentForm">
-    <label for="comment">Comment:</label>
+    <label for="comment">Enter a comment:</label>
     <input type="text" id="comment" name="comment">
     <button type="submit">Submit</button>
 </form>
-<div id="comments"></div>
-
+<div id="comments">
+    <h2>Comments</h2>
+</div>
 <script>
     document.getElementById('commentForm').addEventListener('submit', function (e) {
         e.preventDefault();
