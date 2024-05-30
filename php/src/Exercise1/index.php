@@ -29,10 +29,12 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
 
 
 //------------------------------------WORKING SECTION------------------------------------------
-$sql = "SELECT * FROM users WHERE username = '$username' AND password = '$password'";
-$result = $conn->query($sql);
+$stmt = $conn->prepare("SELECT * FROM users WHERE username = ? AND password = ?");
+$stmt->bind_param("ss", $username, $password);
+$stmt->execute();
+$result = $stmt->get_result();
 
-if ($result->num_rows > 0) {
+if ($result && $result->num_rows > 0) {
     echo sprintf("Welcome to your account <b>%s!</b><br/>", $result->fetch_row()[1]);
 } else {
     echo sprintf("User %s not found!<br/>", htmlspecialchars($username));

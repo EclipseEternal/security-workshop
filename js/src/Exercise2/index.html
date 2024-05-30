@@ -18,6 +18,15 @@
     document.getElementById('commentForm').addEventListener('submit', function (e) {
         e.preventDefault();
         var comment = document.getElementById('comment').value;
+        comment = comment.replace(/[<>"'&]/g, function (match) {
+            return {
+                '<': '&lt;',
+                '>': '&gt;',
+                '"': '&quot;',
+                "'": '&#39;',
+                '&': '&amp;'
+            }[match];
+        });
         document.getElementById('comments').innerHTML += '<p>' + comment + '</p>';
     });
 </script>
