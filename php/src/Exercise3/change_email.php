@@ -9,14 +9,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         die("CSRF token validation failed");
     }
 
-    $new_email = $_POST['email'];
+    $new_user_name = $_POST['username'];
     $user_id = $_SESSION['user_id']; // Assuming the user is logged in and user_id is stored in session
 
     # Bonus -> fixing the SQL injection as well
-    $stmt = $conn->prepare("UPDATE users SET email = ? WHERE id = ?");
-    $stmt->bind_param("si", $new_email, $user_id);
+    $stmt = $conn->prepare("UPDATE users SET username = ? WHERE id = ?");
+    $stmt->bind_param("si", $new_user_name, $user_id);
     if ($stmt->execute()) {
-        echo "Email changed successfully.";
+        echo "User name changed successfully.";
     } else {
         echo "Failed to change email.";
     }
